@@ -1,0 +1,45 @@
+ext.deps = [:]
+def versions = [:]
+versions.http_logging_interceptor = "3.4.1"
+versions.rxjava = "2.1.16"
+versions.moshi = "1.6.0"
+versions.rxandroid = "2.0.2"
+versions.retrofit = "2.4.0"
+versions.mockito = "2.+" // Todo Specify exact version.
+versions.dagger = "2.16"
+versions.junit = "4.12"
+
+def deps = [:]
+
+def retrofit = [:]
+retrofit.retrofit = "com.squareup.retrofit2:retrofit:$versions.retrofit"
+retrofit.retrofit_adapter_rxjava2 = "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit"
+retrofit.moshi_converter = "com.squareup.retrofit2:converter-moshi:$versions.retrofit"
+deps.retrofit = retrofit
+
+def dagger = [:]
+dagger.dagger_android_processor = "com.google.dagger:dagger-android-processor:$versions.dagger"
+dagger.dagger_android = "com.google.dagger:dagger-android-support:$versions.dagger"
+dagger.compiler = "com.google.dagger:dagger-compiler:$versions.dagger"
+dagger.dagger = "com.google.dagger:dagger:$versions.dagger"
+deps.dagger = dagger
+
+def moshi = [:]
+moshi.codegen = "com.squareup.moshi:moshi-kotlin-codegen:$versions.moshi"
+moshi.moshi = "com.squareup.moshi:moshi:$versions.moshi"
+deps.moshi = moshi
+
+def rxjava = [:]
+rxjava.rxandroid = "io.reactivex.rxjava2:rxandroid:$versions.rxandroid"
+rxjava.rxjava2 = "io.reactivex.rxjava2:rxjava:$versions.rxjava"
+deps.rxjava = rxjava
+
+deps.mockito = "org.mockito:mockito-core:$versions.mockito"
+deps.junit = "junit:junit:$versions.junit"
+
+deps.kotlin_std_lib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+deps.http_logging_interceptor =
+        "com.squareup.okhttp3:logging-interceptor:$versions.http_logging_interceptor"
+
+ext.deps = deps
