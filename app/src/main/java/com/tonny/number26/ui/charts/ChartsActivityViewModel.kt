@@ -10,27 +10,17 @@ import javax.inject.Inject
 
 @PerActivity
 class ChartsActivityViewModel @Inject constructor(private val n26: N26) : BaseViewModel() {
-  val coordinate = ObservableField<String>()
   val coordinates = ObservableField<List<Coordinate>>(ArrayList())
 
   fun start() {
     disposables.add(
         n26.blockChainRepo.retrieveCharts()
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ processGraphData(it.values) }, {})
+            .subscribe({ coordinates.set(it.values) }, {})
     )
   }
 
   fun stop() {
     disposables.clear()
-  }
-
-  private fun processGraphData(data: List<Coordinate>) {
-    coordinates.set(data)
-    val coordinates = StringBuilder()
-    data.forEach {
-      coordinates.append("${it.x}, ${it.y}")
-    }
-    this.coordinate.set(coordinates.toString())
   }
 }
