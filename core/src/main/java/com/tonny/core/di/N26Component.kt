@@ -1,7 +1,7 @@
 package com.tonny.core.di
 
 import android.content.Context
-import com.tonny.core.N26
+import com.tonny.core.N26Impl
 import dagger.Component
 import javax.inject.Singleton
 
@@ -10,5 +10,5 @@ import javax.inject.Singleton
 interface N26Component {
   fun context(): Context
 
-  fun inject(n26: N26)
+  fun inject(n26: N26Impl)
 }

@@ -16,7 +16,7 @@ object ChartBinding {
     data: List<Coordinate>
   ) {
     val entries = data.map { Entry(it.x, it.y) }
-    val dataSet = LineDataSet(entries, "N26")
+    val dataSet = LineDataSet(entries, "N26Impl")
     val lineData = LineData(dataSet)
     chart.data = lineData
     chart.invalidate()

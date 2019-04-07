@@ -22,7 +22,7 @@ class ChartsActivity : BaseActivity() {
 
   override fun onStart() {
     super.onStart()
-    viewModel.start()
+    viewModel.loadChart()
   }
 
   override fun onStop() {
