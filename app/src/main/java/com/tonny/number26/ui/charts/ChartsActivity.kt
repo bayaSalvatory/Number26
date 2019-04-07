@@ -8,9 +8,10 @@ import com.tonny.number26.ui.base.BaseActivity
 
 class ChartsActivity : BaseActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        val binding = DataBindingUtil.setContentView<ActivityChartsBinding>(this, R.layout.activity_charts)
-        binding.viewModel = MainActivityViewModel()
-    }
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    val binding =
+      DataBindingUtil.setContentView<ActivityChartsBinding>(this, R.layout.activity_charts)
+    binding.viewModel = MainActivityViewModel()
+  }
 }

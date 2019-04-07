@@ -4,5 +4,5 @@ import androidx.databinding.ObservableField
 import com.tonny.number26.ui.base.BaseViewModel
 
 class MainActivityViewModel : BaseViewModel() {
-    val coordinates  = ObservableField<String>()
+  val coordinates = ObservableField<String>()
 }

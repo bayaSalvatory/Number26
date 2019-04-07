@@ -8,7 +8,7 @@ import javax.inject.Singleton
 @Singleton
 @Component(modules = [N26Module::class, ConfigModule::class])
 interface N26Component {
-    fun context(): Context
+  fun context(): Context
 
-    fun inject(n26: N26)
+  fun inject(n26: N26)
 }

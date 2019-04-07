@@ -9,9 +9,10 @@ import javax.inject.Singleton
 @Module
 class ApiModule {
 
-    @Provides
-    @Singleton
-    fun provideBlockChainApi(retrofitManager: RetrofitManager): BlockChainApi {
-        return retrofitManager.getRetrofit().create(BlockChainApi::class.java)
-    }
+  @Provides
+  @Singleton
+  fun provideBlockChainApi(retrofitManager: RetrofitManager): BlockChainApi {
+    return retrofitManager.getRetrofit()
+        .create(BlockChainApi::class.java)
+  }
 }

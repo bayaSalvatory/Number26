@@ -13,35 +13,35 @@ import javax.inject.Inject
 
 class RetrofitManagerImpl @Inject constructor(private val context: Context) : RetrofitManager {
 
-    private var retrofit: Retrofit? = null
+  private var retrofit: Retrofit? = null
 
-    override fun getRetrofit(): Retrofit {
+  override fun getRetrofit(): Retrofit {
+    if (retrofit == null) {
+      synchronized(RetrofitManager::class.java) {
         if (retrofit == null) {
-            synchronized(RetrofitManager::class.java) {
-                if (retrofit == null) {
-                    val httpLoggingInterceptor = HttpLoggingInterceptor()
-                    httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+          val httpLoggingInterceptor = HttpLoggingInterceptor()
+          httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
 
-                    val cacheFile = File(context.cacheDir, "cache")
-                    val cache = Cache(cacheFile, 1024 * 1024 * 50) // 50Mb
+          val cacheFile = File(context.cacheDir, "cache")
+          val cache = Cache(cacheFile, 1024 * 1024 * 50) // 50Mb
 
-                    val client = OkHttpClient.Builder()
-                        .addInterceptor(httpLoggingInterceptor)
-                        .cache(cache)
-                        .connectTimeout(60L, TimeUnit.SECONDS)
-                        .readTimeout(60L, TimeUnit.SECONDS)
-                        .writeTimeout(60L, TimeUnit.SECONDS)
-                        .build()
+          val client = OkHttpClient.Builder()
+              .addInterceptor(httpLoggingInterceptor)
+              .cache(cache)
+              .connectTimeout(60L, TimeUnit.SECONDS)
+              .readTimeout(60L, TimeUnit.SECONDS)
+              .writeTimeout(60L, TimeUnit.SECONDS)
+              .build()
 
-                    retrofit = Retrofit.Builder()
-                        .baseUrl(NetworkConfig.BASE_URL)
-                        .client(client!!)
-                        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                        .addConverterFactory(MoshiConverterFactory.create())
-                        .build()
-                }
-            }
+          retrofit = Retrofit.Builder()
+              .baseUrl(NetworkConfig.BASE_URL)
+              .client(client!!)
+              .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+              .addConverterFactory(MoshiConverterFactory.create())
+              .build()
         }
-        return retrofit!!
+      }
     }
+    return retrofit!!
+  }
 }

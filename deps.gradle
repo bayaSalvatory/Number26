@@ -1,12 +1,13 @@
 ext.deps = [:]
 def versions = [:]
 versions.http_logging_interceptor = "3.4.1"
-versions.rxjava = "2.1.16"
-versions.moshi = "1.6.0"
+versions.leak_canary = "1.5.4"
 versions.rxandroid = "2.0.2"
 versions.retrofit = "2.4.0"
-versions.mockito = "2.+" // Todo Specify exact version.
+versions.rxjava = "2.1.16"
+versions.moshi = "1.6.0"
 versions.dagger = "2.16"
+versions.mockito = "2.+" // Todo Specify exact version.
 versions.junit = "4.12"
 
 def deps = [:]
@@ -40,6 +41,12 @@ deps.junit = "junit:junit:$versions.junit"
 deps.kotlin_std_lib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
 deps.http_logging_interceptor =
-        "com.squareup.okhttp3:logging-interceptor:$versions.http_logging_interceptor"
+    "com.squareup.okhttp3:logging-interceptor:$versions.http_logging_interceptor"
+
+def leak_canary = [:]
+leak_canary.leakcanary_android_no_op =
+    "com.squareup.leakcanary:leakcanary-android-no-op:$versions.leak_canary"
+leak_canary.leakcanary_android = "com.squareup.leakcanary:leakcanary-android:$versions.leak_canary"
+deps.leak_canary = leak_canary
 
 ext.deps = deps

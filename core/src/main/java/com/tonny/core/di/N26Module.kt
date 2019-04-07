@@ -7,9 +7,9 @@ import javax.inject.Singleton
 
 @Module
 class N26Module(private val context: Context) {
-    @Provides
-    @Singleton
-    fun provideContext(): Context {
-        return this.context
-    }
+  @Provides
+  @Singleton
+  fun provideContext(): Context {
+    return this.context
+  }
 }

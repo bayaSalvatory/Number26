@@ -7,13 +7,13 @@ import com.tonny.core.di.N26Module
 import javax.inject.Inject
 
 class N26(context: Context) {
-    @Inject
-    lateinit var blockChainRepo: BlockChainRepo
+  @Inject
+  lateinit var blockChainRepo: BlockChainRepo
 
-    init {
-        DaggerN26Component.builder()
-            .n26Module(N26Module(context))
-            .build()
-            .inject(this)
-    }
+  init {
+    DaggerN26Component.builder()
+        .n26Module(N26Module(context))
+        .build()
+        .inject(this)
+  }
 }

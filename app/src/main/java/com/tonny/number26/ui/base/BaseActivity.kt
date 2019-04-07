@@ -4,10 +4,10 @@ import androidx.appcompat.app.AppCompatActivity
 import io.reactivex.disposables.CompositeDisposable
 
 abstract class BaseActivity : AppCompatActivity() {
-    val disposables = CompositeDisposable()
+  val disposables = CompositeDisposable()
 
-    override fun onStop() {
-        super.onStop()
-        disposables.clear()
-    }
+  override fun onStop() {
+    super.onStop()
+    disposables.clear()
+  }
 }

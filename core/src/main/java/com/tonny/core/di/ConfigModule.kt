@@ -10,11 +10,11 @@ import javax.inject.Singleton
 
 @Module(includes = [(ApiModule::class)])
 abstract class ConfigModule {
-    @Singleton
-    @Binds
-    abstract fun bindRetrofitManager(impl: RetrofitManagerImpl): RetrofitManager
+  @Singleton
+  @Binds
+  abstract fun bindRetrofitManager(impl: RetrofitManagerImpl): RetrofitManager
 
-    @Singleton
-    @Binds
-    abstract fun bindBlockChainRepo(impl: BlockChainRepoImpl): BlockChainRepo
+  @Singleton
+  @Binds
+  abstract fun bindBlockChainRepo(impl: BlockChainRepoImpl): BlockChainRepo
 }
