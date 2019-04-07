@@ -61,4 +61,7 @@ dependencies {
   implementation deps.dagger.dagger_android
   implementation deps.dagger.dagger
   kapt deps.dagger.compiler
+
+  // Chart/Graph Drawing lib
+  implementation deps.mpandroidchat
 }

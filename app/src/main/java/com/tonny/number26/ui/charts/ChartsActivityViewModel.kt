@@ -9,8 +9,9 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import javax.inject.Inject
 
 @PerActivity
-class MainActivityViewModel @Inject constructor(private val n26: N26) : BaseViewModel() {
-  val coordinates = ObservableField<String>()
+class ChartsActivityViewModel @Inject constructor(private val n26: N26) : BaseViewModel() {
+  val coordinate = ObservableField<String>()
+  val coordinates = ObservableField<List<Coordinate>>(ArrayList())
 
   fun start() {
     disposables.add(
@@ -25,10 +26,11 @@ class MainActivityViewModel @Inject constructor(private val n26: N26) : BaseView
   }
 
   private fun processGraphData(data: List<Coordinate>) {
+    coordinates.set(data)
     val coordinates = StringBuilder()
     data.forEach {
       coordinates.append("${it.x}, ${it.y}")
     }
-    this.coordinates.set(coordinates.toString())
+    this.coordinate.set(coordinates.toString())
   }
 }

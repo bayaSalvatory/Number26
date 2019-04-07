@@ -10,7 +10,7 @@ import javax.inject.Inject
 
 class ChartsActivity : BaseActivity() {
 
-  @Inject lateinit var viewModel: MainActivityViewModel
+  @Inject lateinit var viewModel: ChartsActivityViewModel
 
   override fun onCreate(savedInstanceState: Bundle?) {
     AndroidInjection.inject(this)

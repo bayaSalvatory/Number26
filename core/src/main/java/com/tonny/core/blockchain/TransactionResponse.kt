@@ -10,6 +10,6 @@ data class TransactionResponse(
 )
 
 data class Coordinate(
-  val x: Double,
-  val y: Double
+  val x: Float,
+  val y: Float
 )
