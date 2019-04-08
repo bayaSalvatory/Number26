@@ -37,6 +37,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         bind:coordinates="@{viewModel.coordinates}"
+        android:visibility="@{!viewModel.showProgress}"
         />
 
   </androidx.constraintlayout.widget.ConstraintLayout>

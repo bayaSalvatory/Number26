@@ -6,7 +6,7 @@ import javax.inject.Inject
 
 class BlockChainRepoImpl @Inject constructor(private val blockChainApi: BlockChainApi) :
     BlockChainRepo {
-  override fun retrieveCharts(): Single<TransactionResponse> = blockChainApi.retrieveCharts()
+  override fun retrieveCharts(): Single<GraphData> = blockChainApi.retrieveCharts()
       .subscribeOn(Schedulers.io())
 
 }

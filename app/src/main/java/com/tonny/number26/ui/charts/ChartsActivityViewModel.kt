@@ -17,7 +17,8 @@ class ChartsActivityViewModel @Inject constructor(private val n26: N26) : BaseVi
   fun loadChart() {
     showProgress.set(true)
     disposables.add(
-        n26.getBlockChainRepo().retrieveCharts()
+        n26.getBlockChainRepo()
+            .retrieveCharts()
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
               showProgress.set(false)

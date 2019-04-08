@@ -9,5 +9,5 @@ interface BlockChainApi {
   fun retrieveCharts(
     @Query("timespan") timeSpan: String = "5weeks",
     @Query("rollingAverage") rollingAverage: String = "8hours"
-  ): Single<TransactionResponse>
+  ): Single<GraphData>
 }

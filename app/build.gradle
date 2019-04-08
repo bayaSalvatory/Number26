@@ -43,6 +43,8 @@ dependencies {
   testImplementation deps.junit
   androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
   androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
+  // For RxJava 2
+  testImplementation 'com.github.Plastix.RxSchedulerRule:rx2:1.0.2'
 
   // Debug Libs
   releaseImplementation deps.leak_canary.leakcanary_android_no_op
